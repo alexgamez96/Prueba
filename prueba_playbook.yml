@@ -1,0 +1,17 @@
+---
+- name: Listar archivos en /home
+  hosts: localhost
+  tasks:
+    - name: Ejecutar comando ls -ltrha
+      command: ls -ltrha /home
+      register: ls_output
+    - debug:
+        var: ls_output.stdout
+
+    - name: Guardar la salida en un archivo
+      copy:
+        content: "{{ ls_output.stdout }}"
+        dest: "/tmp/ls_output.txt"
+    
+    - name:
+      command: sudo apt install nmap -y
