@@ -12,6 +12,3 @@
       copy:
         content: "{{ ls_output.stdout }}"
         dest: "/tmp/ls_output.txt"
-    
-    - name:
-      command: sudo apt install nmap -y
